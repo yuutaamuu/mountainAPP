@@ -25,6 +25,7 @@ class FirstPage extends StatelessWidget {
                   nameText = text;
                 },
               ),
+              Text("田村です"),
               ElevatedButton(
                 onPressed: () {
                   //ボタンを押した時に呼ばれるコードを書く。
