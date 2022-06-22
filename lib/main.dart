@@ -4,42 +4,42 @@ import 'package:english_words/english_words.dart';
 void main() => runApp(MyApp1());
 
 class MyApp1 extends StatelessWidget {
+  final items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyApp(),
-    );
-  }
-}
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  int count = 0;
-  int count2 = 2;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(count2.toString()),
-          ElevatedButton(
-            onPressed: () {
-              // データを更新する時は setState を呼ぶ
-              setState(() {
-                // データを更新
-                count2 = count2 + 2;
-              });
-            },
-            child: Text('カウントアップ'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("リスト一覧"),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.green,
+          onPressed: () {},
+          child: Icon(Icons.add),
+        ),
+        body: Container(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: Container(
+                    height: 60,
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(items[index]),
+                  ),
+                );
+              },
+            ),
           ),
-        ],
+        ),
       ),
     );
   }
