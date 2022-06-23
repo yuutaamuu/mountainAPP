@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mountain/main.dart';
 import 'package:mountain/second_page.dart';
 
-class FirstPage extends StatelessWidget {
-  String nameText = '';
+class TodoAddPage extends StatefulWidget {
+  @override
+  _TodoAddPageState createState() => _TodoAddPageState();
+}
+
+class _TodoAddPageState extends State<TodoAddPage> {
+  String itemText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -16,27 +22,22 @@ class FirstPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('images/sweetdreams.png'),
               TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                 ),
-                onChanged: (text){
-                  nameText = text;
+                onChanged: (String value){
+                  setState(() {
+                    itemText = value;
+                  });
                 },
               ),
-              Text("田村です"),
               ElevatedButton(
                 onPressed: () {
                   //ボタンを押した時に呼ばれるコードを書く。
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondPage(nameText),
-                    fullscreenDialog: true,
-                    ),
-                  );
+                  Navigator.of(context).pop(itemText);
                 },
-                child: const Text('次の画面へ'),
+                child: const Text('保存する'),
               ),
             ],
           ),
