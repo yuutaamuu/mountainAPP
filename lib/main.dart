@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:mountain/first_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(MyApp1());
 
@@ -9,6 +10,10 @@ class MyApp1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Home(),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
     );
   }
 }
