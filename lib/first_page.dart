@@ -72,7 +72,7 @@ class _TodoAddPageState extends State<TodoAddPage> {
               ElevatedButton(
                 onPressed: () {
                   //ボタンを押した時に呼ばれるコードを書く。
-                  Navigator.of(context).pop(itemText);
+                  Navigator.of(context).pop(listData(itemText, dateFormat));
                 },
                 child: const Text('保存する'),
               ),
@@ -82,4 +82,11 @@ class _TodoAddPageState extends State<TodoAddPage> {
       ),
     );
   }
+}
+
+class listData {
+  final String itemText;
+  final dynamic dateFormat;
+
+  listData(this.itemText, this.dateFormat);
 }
