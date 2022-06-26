@@ -24,7 +24,7 @@ class Home extends StatefulWidget {
 }
 
 class _TodoListPageState extends State<Home> {
-  List items = [];
+  List<Map<String, dynamic>> items = [];
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _TodoListPageState extends State<Home> {
             if(newListText != null) {
               setState(() {
                 // リスト追加
-                items.add(newListText.itemText);
+                items.add({"text": newListText.itemText, "date": newListText.dateFormat});
                 print({newListText});
                 print(newListText.itemText);
               });
@@ -64,8 +64,8 @@ class _TodoListPageState extends State<Home> {
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
                           children: [
-                            Text(items[index])
-                            // Text(items[index]),
+                            Text(items[index]["date"]),
+                            Text(items[index]["text"])
                           ],
                         ),
                       ),
