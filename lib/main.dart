@@ -59,13 +59,20 @@ class _TodoListPageState extends State<Home> {
                   itemBuilder: (context, index) {
                     return Card(
                       child: Container(
-                        height: 60,
                         width: double.infinity,
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
                           children: [
                             Text(items[index]["date"]),
-                            Text(items[index]["text"])
+                            Text(items[index]["text"]),
+                            ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    items.removeAt(index);
+                                    print(items);
+                                  });
+                            },
+                                child: Text("削除"))
                           ],
                         ),
                       ),
