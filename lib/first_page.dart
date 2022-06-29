@@ -49,7 +49,7 @@ class _TodoAddPageState extends State<TodoAddPage> {
             children: [
               Row(
                 children: [
-                  Text("$dateTime"),
+                  Text("$dateFormat"),
                   Spacer(),
                   ElevatedButton(
                     onPressed: () {

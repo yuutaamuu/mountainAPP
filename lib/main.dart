@@ -86,7 +86,6 @@ class _TodoListPageState extends State<Home> {
                                           setState(() {
                                             complete.add(items[index]);
                                             _removeItems(items, index);
-
                                           });
                                     },
                                         child: Text("完了へ")),
